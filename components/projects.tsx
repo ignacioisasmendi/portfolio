@@ -7,7 +7,7 @@ export function Projects() {
       slug: "customer-feedback-system",
       title: "Customer Feedback System",
       description: "React Native tablet app and Next.js admin dashboard for real-time customer feedback collection",
-      image: "/pharmacy-project/admin-login.png",
+      image: "/pharmacy-project/main.png",
       tech: ["React Native", "Next.js", "Supabase"],
     },
     {

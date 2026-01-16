@@ -11,10 +11,10 @@ export default function PortfolioPage() {
     <main className="min-h-screen bg-white">
       <Hero />
       <About />
-      <Skills />
-      <Projects />
       <Experience />
-      <HowIWork />
+      <Projects />
+      <Skills />
+      {/* <HowIWork /> */}
       <Contact />
     </main>
   )

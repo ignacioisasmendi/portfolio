@@ -72,29 +72,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
 
           {/* Tech Stack */}
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-2">
             {project.tech.map((techId) => {
               const Icon = techIcons[techId.toLowerCase()];
               const name = techNames[techId.toLowerCase()] || techId;
               
-              if (!Icon) {
-                return (
-                  <span
-                    key={techId}
-                    className="rounded-full border border-[#146C43] px-4 py-2 text-sm font-medium text-[#146C43]"
-                  >
-                    {name}
-                  </span>
-                );
-              }
-              
               return (
                 <span
                   key={techId}
-                  className="inline-flex items-center gap-2 rounded-full border border-[#146C43] px-4 py-2 text-sm font-medium text-[#146C43]"
+                  className="group inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium text-card-foreground shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[#146C43]/30 hover:shadow-md"
                   title={name}
                 >
-                  <Icon className="h-4 w-4" />
+                  {Icon && <Icon className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-[#146C43]" />}
                   <span>{name}</span>
                 </span>
               );
@@ -109,7 +98,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <ProjectCarousel 
             images={project.images} 
             title={project.title}
-            descriptions={project.imageDescriptions}
           />
         </div>
       </section>

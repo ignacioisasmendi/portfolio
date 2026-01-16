@@ -3,14 +3,14 @@
 import { useState, useCallback, useEffect } from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ImageDescription } from "@/lib/projects-data"
 
 interface ProjectCarouselProps {
-  images: string[]
+  images: ImageDescription[]
   title: string
-  descriptions?: string[]
 }
 
-export function ProjectCarousel({ images, title, descriptions }: ProjectCarouselProps) {
+export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel()
   const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
@@ -54,19 +54,19 @@ export function ProjectCarousel({ images, title, descriptions }: ProjectCarousel
     <div className="space-y-4">
       {/* Main Carousel */}
       <div className="relative group">
-        <div className="overflow-hidden rounded-lg border border-neutral-200" ref={emblaMainRef}>
+        <div className="overflow-hidden rounded-lg border border-neutral-200 shadow-md transition-shadow duration-300 hover:shadow-lg" ref={emblaMainRef}>
           <div className="flex">
             {images.map((image, index) => (
               <div key={index} className="flex-[0_0_100%] min-w-0 relative">
                 <img
-                  src={image || "/placeholder.svg"}
+                  src={image.image || "/placeholder.svg"}
                   alt={`${title} - Image ${index + 1}`}
                   className="w-full object-cover"
                 />
 
-                {descriptions && descriptions[index] && index === selectedIndex && (
-                  <div className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-white/95 border-t border-neutral-200">
-                    <p className="text-md text-neutral-600 leading-relaxed">{descriptions[index]}</p>
+                {image.description && image.description && index === selectedIndex && (
+                  <div className=" bottom-0 left-0 right-0 px-4 py-3 bg-white/95 border-t border-neutral-200">
+                    <p className="text-md text-neutral-600 leading-relaxed">{image.description}</p>
                   </div>
                 )}
               </div>
@@ -107,7 +107,7 @@ export function ProjectCarousel({ images, title, descriptions }: ProjectCarousel
       {/* Thumbnails */}
       {images.length > 1 && (
         <div className="overflow-hidden" ref={emblaThumbsRef}>
-          <div className="flex gap-3">
+          <div className="flex gap-3 p-1">
             {images.map((image, index) => (
               <button
                 key={index}
@@ -120,7 +120,7 @@ export function ProjectCarousel({ images, title, descriptions }: ProjectCarousel
                 aria-label={`Go to image ${index + 1}`}
               >
                 <img
-                  src={image || "/placeholder.svg"}
+                  src={image.image || "/placeholder.svg"}
                   alt={`${title} thumbnail ${index + 1}`}
                   className="w-full h-16 object-cover"
                 />

@@ -1,5 +1,6 @@
 import { Mail, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { contactInformation } from "@/lib/contact-information"
 
 export function Contact() {
   return (
@@ -22,7 +23,7 @@ export function Contact() {
           >
             <a href="mailto:isasmendi.ignacio@gmail.com">
               <Mail className="mr-2 h-4 w-4" />
-              isasmendi.ignacio@gmail.com
+             Email
             </a>
           </Button>
 
@@ -32,7 +33,7 @@ export function Contact() {
             className="border-[#E5E7EB] text-[#1C1C1C] hover:border-[#146C43] hover:text-[#0d4d2f] hover:bg-transparent bg-transparent [&_svg]:text-current"
             asChild
           >
-            <a href="https://www.linkedin.com/in/ignacio-isasmendi/" target="_blank" rel="noopener noreferrer">
+            <a href={contactInformation.linkedin} target="_blank" rel="noopener noreferrer">
               <Linkedin className="mr-2 h-4 w-4" />
               LinkedIn
             </a>

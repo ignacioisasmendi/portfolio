@@ -6,8 +6,7 @@ export interface ProjectData {
   solution: string
   impact: string
   tech: string[]
-  images: string[]
-  imageDescriptions?: string[]
+  images: ImageDescription[]
   videos?: string[]
   links?: {
     live?: string
@@ -15,9 +14,14 @@ export interface ProjectData {
   }
 }
 
+export interface ImageDescription {
+  image: string;
+  description?: string;
+}
+
 export interface TechStack {
-  id: string;        // Icon identifier (e.g., "react", "nextjs", "typescript")
-  name?: string;     // Optional display name for accessibility/tooltips
+  id: string;        
+  name?: string;   
 }
 
 export const projectsData: ProjectData[] = [
@@ -33,16 +37,12 @@ export const projectsData: ProjectData[] = [
       "Collected 3,000+ in-store customer feedback entries and is currently running in production, replacing paper surveys with a real-time, actionable feedback system that improves customer satisfaction tracking",
     tech: ["react-native", "nextjs", "supabase", "typescript", "tailwindcss"],
     images: [
-      "/pharmacy-project/admin-login.png",
-      "/pharmacy-project/admin-dashboard.png",
-      "/pharmacy-project/tablet-question.jpeg",
-      "/pharmacy-project/tablet-end.jpeg",
-    ],
-    imageDescriptions: [
-      "Secure admin login interface with email and password authentication",
-      "Real-time dashboard displaying customer feedback analytics and trends",
-      "Interactive tablet interface where customers rate their pharmacy experience",
-      "Thank you screen shown to customers after completing their feedback",
+      { image: "/pharmacy-project/main.png", description: "Interactive tablet interface where customers rate their pharmacy experience" },
+      { image: "/pharmacy-project/admin-login.png", description: "Secure admin login interface with username and password authentication" },
+      { image: "/pharmacy-project/admin-dashboard1.png", description: "Real-time dashboard displaying customer feedback analytics and trends" },
+      { image: "/pharmacy-project/admin-dashboard2.png", description: "Real-time dashboard displaying customer feedback analytics and trends" },
+      { image: "/pharmacy-project/tablet-question.jpeg", description: "Interactive tablet interface where customers rate their pharmacy experience" },
+      { image: "/pharmacy-project/tablet-end.jpeg", description: "Thank you screen shown to customers after completing their feedback" }
     ],
   },
   {
@@ -67,19 +67,30 @@ export const projectsData: ProjectData[] = [
   },
   {
     slug: "photographer-portfolio",
-    title: "Photographer Portfolio",
-    description: "SEO-optimized portfolio website for professional photographer",
+    title: "Photographer & Makeup Portfolio",
+    description: "SEO-optimized portfolio website for professional photographer and makeup artist",
     challenge:
-      "A professional photographer needed an online presence that beautifully showcased their work while ranking well in search results. The site needed to load quickly despite high-resolution images, work perfectly on mobile devices, and attract organic traffic.",
+      "A professional photographer and makeup artist needed an online presence that beautifully showcased their work while ranking well in search results. The site needed to load quickly despite high-resolution images, work perfectly on mobile devices, and attract organic traffic.",
     solution:
-      "Designed and developed a responsive Next.js landing page with optimized image loading using next/image, implemented comprehensive SEO best practices (structured data, meta tags, sitemaps), and ensured fast performance through code splitting and lazy loading. Added a contact form that allows visitors to reach out directly from the page, with email notifications sent to the photographer using Resend.",
+      "Designed and developed a responsive Next.js landing page with optimized image loading using next/image, implemented comprehensive SEO best practices (structured data, meta tags, sitemaps), and ensured fast performance through code splitting and lazy loading. Added a contact form that allows visitors to reach out directly from the page, with email notifications sent to the photographer and makeup artist using Resend.",
     impact:
       "Delivered a visually compelling portfolio that achieves 95+ Lighthouse scores across all metrics. The site loads in under 2 seconds and attracts consistent organic traffic through search engines, resulting in increased client inquiries.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "SEO Optimization", "Responsive Design", "Resend"],
-    images: ["/photographer-portfolio-landing-page.jpg", "/photography-gallery-grid.jpg", "/mobile-responsive-design.png"],
+    tech: ["nextjs", "typescript", "tailwindcss", "resend"],
+    images: [
+      { image: "/photography-landing/hero.png"},
+      { image: "/photography-landing/portfolio.png"},
+      { image: "/photography-landing/gallery.png"},
+      { image: "/photography-landing/gallery-modal.png"},
+      { image: "/photography-landing/about-me.png"},
+      { image: "/photography-landing/contact.png"},
+      { image: "/photography-landing/hero-mobile.png"},
+      { image: "/photography-landing/menu-mobile.png"},
+      { image: "/photography-landing/portfolio-mobile.png"},
+      { image: "/photography-landing/gallery-mobile.png"},
+      { image: "/photography-landing/contact-mobile.png"},
+    ],
     links: {
-      live: "https://gabrielabissoni.com.ar/",
-      github: "#",
+      live: "https://gabrielabissoni.com.ar/"
     },
   },
   {
