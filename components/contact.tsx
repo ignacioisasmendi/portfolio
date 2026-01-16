@@ -5,7 +5,7 @@ import { contactInformation } from "@/lib/contact-information"
 export function Contact() {
   return (
     <section id="contact" className="border-t border-[#E5E7EB] px-6 py-24">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-5xl">
         <h2 className="text-4xl font-bold text-[#1C1C1C]">Contact</h2>
 
         <div className="mt-2 h-1 w-16 bg-[#146C43]" />
